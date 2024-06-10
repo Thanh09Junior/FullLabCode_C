@@ -4,8 +4,8 @@
   + Lab3: Bài tập C++ cơ bản, làm quen với if-else.
   + Lab4: Bài tập C++ cơ bản, làm quen với vòng lặp for, do-while.
   + Lab5: Bài tập C++ cơ bản, làm quen với vòng lặp while.
-  + Lab6: Bài tập C++ cơ bản, làm quen với các hàm tự tạo (Làm quen với menu)
-  + Lab7: Bài tập C++, làm quen với mảng.
+  + Lab6-7: Bài tập C++ cơ bản, làm quen với các hàm tự tạo (Làm quen với menu)
+  + Lab8: Bài tập C++, làm quen với mảng.
 
 # các thông tin khác:
 Link nội dung lý thuyết: https://docs.google.com/document/d/1vLffOEXGLX6L2Y_ZUwzxutgCDx_yw97BBrJxmsfwGa8/edit
