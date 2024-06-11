@@ -19,147 +19,205 @@ void DisplayPageNumber(int Number)
 	cout << "\nDang hien bai " << Number << endl << endl;
 }
 
-int Bai2_Euclid()
+void Bai1()
 {
-	int m = 0, n = 0, r = 0;
-	cout << "Hay nhap tu: " << m << endl;
-	cout << "Hay nhap mau: " << n << endl;
-	do
+	double arr[50];
+	for (int i = 0; i < 50; i++)
 	{
-		r = m % n;
-		m = n;
-		n = r;
-	} while (n != 0);
-	return n;
+		if (i < 25)
+		{
+			arr[i] = pow(i, 2);
+		}
+		else
+		{
+			arr[i] = pow(i, 3);
+		}
+		cout << arr[i] << " ";
+		if (i % 10 == 0)
+		{
+			cout << endl;
+		}
+	}
+	cout << endl;
 }
 
-int Tohop(int n, int k)
+void Bai2()
 {
-	int giaithua_n = 1, giaithua_k = 1, giaithua_nk = 1;
-	for (int i = 1; i <= n; i++)
+	srand((int)time(NULL));
+	const int MAXSIZE = 100;
+	double arr[MAXSIZE];
+	int currentsize = 0;
+	do
 	{
-		giaithua_n *= i;
-	}
-	for (int j = 1; j <= k; j++)
+		cout << "Hay nhap current size: "; cin >> currentsize;
+	} while (currentsize <= 0 || currentsize >100);
+	for (int i = 0; i < currentsize; i++)
 	{
-		giaithua_k *= j;
+		arr[i] = rand() % 50;
+		cout << arr[i] << ", ";
 	}
-	for (int t = 1; t <= (n - k); t++)
-	{
-		giaithua_nk *= t;
-	}
-	return (giaithua_n) / (giaithua_k * (giaithua_nk));
+	cout << endl;
 }
 
 void Bai3()
 {
-	int n = 0, k = 0, giaithua = 1, tohop = 1, h = 0;
-	cout << "Hay nhap n: "; cin >> n;
-	for (int i = 1; i <= n; i++)
+	srand((int)time(NULL));
+	const int MAXSIZE = 100;
+	int arr[MAXSIZE];
+	int currentsize = 0, max = 0;
+	do
 	{
-		giaithua *= i;
-	}
-	cout << "Giai thua: " << giaithua << endl;
-	cout << "Hay nhap k: "; cin >> k;
-	tohop = Tohop(n,k);
-	cout << "To hop n,k la: " << tohop << endl;
-	cout << "Hay nhap h: "; cin >> h;
-	for (int n = 0; n < h; n++)
+		cout << "Hay nhap current size: "; cin >> currentsize;
+	} while (currentsize <= 0 || currentsize > 100);
+	for (int i = 0; i < currentsize; i++)
 	{
-		for (int k = 0; k < h; k++)
+		arr[i] = rand() % 50;
+		cout << arr[i] << ", ";
+		if (max < arr[i])
 		{
-			if (k <= n)
-			{
-				tohop = Tohop(n, k);
-				cout << tohop << " ";
-			}
-			else
-			{
-				cout << " ";
-			}
+			max = arr[i];
 		}
-		cout << endl;
 	}
+	cout << "Phan tu lon nhat: " << max << endl;
+	cout << endl;
 }
-
 void Bai4()
 {
-	char k = ' ';
-	int demchucai = 0, demso = 0;
-	cout << "Hay nhap ki tu: "; cin >> k;
-	if (k >= '0' && k <= '9')
+	int arr[100], tong = 0;
+	double trungbinh = 0.0;
+	srand((int)time(NULL));
+	int currentsize = 0, max = 0;
+	do
 	{
-		cout << "k la ki tu so" << endl;
+		cout << "Hay nhap current size: "; cin >> currentsize;
+	} while (currentsize <= 0 || currentsize > 100);
+	for (int i = 0; i < currentsize; i++)
+	{
+		arr[i] = rand() % 50;
+		cout << arr[i] << ", ";
+		trungbinh += arr[i];
+	}
+	cout << "\nGia tri trung binh: " << trungbinh*1.0/currentsize*1.0 << endl;
+	cout << endl;
+}
+
+void nhap(int arr[100], int arrsize)
+{
+	srand(time(NULL));
+	for (int i = 0; i < arrsize; i++)
+	{
+		arr[i] = rand() % 50;
+	}
+}
+void xuat(int arr[100], int arrsize)
+{
+	cout << endl;
+	for (int i = 0; i < arrsize; i++)
+	{
+		cout << arr[i] << ", ";
+	}
+	cout << endl;
+}
+
+void tim(const int arr[], int arrSize, int x)
+{
+	cout << "Hay nhap x can tim: "; cin >> x;
+	bool kt = false;
+	for (int i = 0; i < arrSize; i++)
+	{
+		if (arr[i] == x)
+		{
+			kt = true;
+		}
+	}
+	if (kt)
+	{
+		cout << "X co ton tai" << endl;
 	}
 	else
 	{
-		if ((k >= 'A' && k <= 'Z') || (k >= 'a' && k <= 'z'))
-		{
-			cout << "k la chu cai" << endl;
-		}
+		cout << "X khong ton tai" << endl;
 	}
-	string n = "";
-	cout << "Hay nhap chuoi: "; cin >> n;
-	for (int i = 0; i < n.length(); i++)
-	{
-		if (n[i] >= '0' && n[i] <= '9')
-		{
-			demso++;
-		}
-		else
-		{
-			if ((n[i] >= 'A' && n[i] <= 'Z') || (n[i] >= 'a' && n[i] <= 'z'))
-			{
-				demchucai++;
-			}
-		}
-	}
-	cout << "So chu cai: " << demchucai << ", ki tu so: " << demso << endl;
 }
-
-int Bai8()
+void daonguoc(int arr[], int arrsize)
 {
-	int n = 0, a = 0, b = 1, tong = 0;
-	cout << "Hay nhap n: "; cin >> n;
-	for (int i = 0; i < n-1; i++)
+	int arr1[100];
+	for (int i = 0; i < arrsize; i++)
 	{
-		tong = a + b;
-		a = b;
-		b = tong;
+		arr1[i] = arr[arrsize - 1 - i];
 	}
-	return tong;
+	cout << endl;
+	for (int i = 0; i < arrsize; i++)
+	{
+		arr[i] = arr1[i];
+		cout << arr[i] << ", ";
+	}
+	cout << endl;
+}
+void xoa(int arr[], int& arrSize, int p)
+{
+	//Tự nghiên cứu.
 }
 
-int Bai9() {
-	int ngay = 0, thang = 0, nam = 0, khoangcach = 0;
-	cout << "Hay nhap ngay,thang,nam: "; cin >> ngay >> thang >> nam;
-	khoangcach = ngay;
-	for (thang; thang != 1; thang--)
+void Bai6()
+{
+	int arr[100], arrSize = 0, x = 0;
+	cout << "Hay nhap kich thuoc arrsize: "; cin >> arrSize;
+	nhap(arr, arrSize);
+	xuat(arr, arrSize);
+	tim(arr, arrSize, x);
+	daonguoc(arr, arrSize);
+}
+
+void Bai7()
+{
+	int arr[100], arrSize = 0, min = 100000, vitri = 0;
+	cout << "Hay nhap kich thuoc arrsize: "; cin >> arrSize;
+	srand(time(NULL));
+	for (int i = 0; i < arrSize; i++)
 	{
-		if (thang == 2)
+		arr[i] = rand() % 50;
+		if (min > arr[i])
 		{
-			if ((nam % 400 == 0 || nam % 4 == 0) && nam % 100 != 0)
-			{
-				khoangcach += 29;
-			}
-			else
-			{
-				khoangcach += 28;
-			}
-		}
-		else
-		{
-			if (thang == 1 || thang == 3 || thang == 5 || thang == 7 || thang == 9 || thang == 10 || thang == 12)
-			{
-				khoangcach += 31;
-			}
-			else
-			{
-				khoangcach += 30;
-			}
+			min = arr[i];
 		}
 	}
-	return khoangcach;
+	cout << endl;
+	for (int i = 0; i < arrSize; i++)
+	{
+		cout << arr[i] << ", ";
+		if (arr[i] == min)
+		{
+			vitri = i;
+			break;
+		}
+	}
+	cout << "Vi tri gia tri nho nhat xuat hien dau tien: " << vitri << endl;
+	cout << endl;
+}
+
+void Bai8()
+{
+	int arr[100], arrSize = 0,x =0, counts = 0;
+	cout << "Hay nhap kich thuoc arrsize: "; cin >> arrSize;
+	srand(time(NULL));
+	for (int i = 0; i < arrSize; i++)
+	{
+		arr[i] = rand() % 50;
+	}
+	cout << endl;
+	cout << "Hay nhap x: "; cin >> x;
+	for (int i = 0; i < arrSize; i++)
+	{
+		cout << arr[i] << ", ";
+		if (arr[i] == x)
+		{
+			counts++;
+			break;
+		}
+	}
+	cout << "So lan x xuat hien: " << counts << endl;
+	cout << endl;
 }
 
 void Menu()
@@ -169,13 +227,13 @@ void Menu()
 	do
 	{
 		cout << "------------- Menu -------------" << endl;
-		for (int i = 1; i <= 11; i++)
+		for (int i = 1; i <= 13; i++)
 		{
 			cout << i << ". Bai " << i << endl;
 		}
 		cout << "0. Thoat" << endl;
 		cout << "--------------------------------" << endl;
-		cout << "Hay nhap lua chon [0-11]: "; cin >> Selection;
+		cout << "Hay nhap lua chon [0-13]: "; cin >> Selection;
 		if (cin.fail())
 		{
 			ErrorInput(Selection);
@@ -191,13 +249,13 @@ void Menu()
 		case 1:
 		{
 			DisplayPageNumber(Selection);
-			//Tự ôn tập
+			Bai1();
 			break;
 		}
 		case 2:
 		{
 			DisplayPageNumber(Selection);
-			cout << "UCLN: " << Bai2_Euclid() << endl;
+			Bai2();
 			break;
 		}
 		case 3:
@@ -215,31 +273,31 @@ void Menu()
 		case 5:
 		{
 			DisplayPageNumber(Selection);
-			//Tự ôn tập
+			
 			break;
 		}
 		case 6:
 		{
 			DisplayPageNumber(Selection);
-			//Tự ôn tập
+			Bai6();
 			break;
 		}
 		case 7:
 		{
 			DisplayPageNumber(Selection);
-			//Tự ôn tập
+			Bai7();
 			break;
 		}
 		case 8:
 		{
 			DisplayPageNumber(Selection);
-			cout << "Fibonaci: " << Bai8() << endl;
+			Bai8();
 			break;
 		}
 		case 9:
 		{
 			DisplayPageNumber(Selection);
-			cout << "So ngay hien tai cach ngay dau tien: " << Bai9() << endl;
+
 			break;
 		}
 		case 10:
@@ -252,6 +310,18 @@ void Menu()
 		{
 			DisplayPageNumber(Selection);
 			
+			break;
+		}
+		case 12:
+		{
+			DisplayPageNumber(Selection);
+
+			break;
+		}
+		case 13:
+		{
+			DisplayPageNumber(Selection);
+
 			break;
 		}
 		default:
